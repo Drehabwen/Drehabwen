@@ -29,7 +29,7 @@ These projects turn the technical work into user-facing rehabilitation and medic
 | Project | What It Does |
 | --- | --- |
 | [RehabScreenLab](https://github.com/Drehabwen/RehabScreenLab) | Field rehabilitation screening system for posture symmetry, squat assessment, Adams testing, and cross-protocol reports. |
-| [Galen](https://github.com/Drehabwen/Galen) | Desktop medical research assistant for literature search, paper reading, citation formatting, and AI writing. |
+| [Galen](https://github.com/Drehabwen/Galen) | Rust/Tauri medical research workbench with multi-model routing, PubMed/MeSH retrieval, citation formatting, and agent-runtime infrastructure. |
 | [RehabGPT-](https://github.com/Drehabwen/RehabGPT-) | Children's spine-health AI companion connecting clinical rehab plans with family follow-up. |
 | [RehabHub](https://github.com/Drehabwen/RehabHub) | Mobile rehabilitation assessment app for FMS-style movement screening and pose analysis. |
 
