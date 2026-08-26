@@ -44,6 +44,12 @@ RehabScreenLab → QingYueRehabWorkbench
         └── Clinical-Agent-Eval-Lab
 ```
 
+## 项目起点 | Origin
+
+[rehabAIfms](https://github.com/Drehabwen/rehabAIfms) 是我在 GitHub 上公开的第一个康复 AI 原型，始于 2025 年 9 月。它用 Expo、TensorFlow.js 姿态估计和关节角度计算探索手机端深蹲实时反馈。
+
+它现在作为历史原型保留，不再承担主产品开发；但其中“动作如何变成可解释反馈”的问题，后来演化成 rehab-motion-lab、RehabScreenLab 和 QingYueRehabWorkbench。
+
 ## 重点项目 | Featured Work
 
 ### [QingYueRehabWorkbench](https://github.com/Drehabwen/QingYueRehabWorkbench)
