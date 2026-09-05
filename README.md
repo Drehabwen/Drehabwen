@@ -2,93 +2,101 @@
 
 # Drehabwen · DeepRehab
 
-**让康复医学拥有可记录、可解释、可协作的 AI 基础设施。**  
-**Building explainable, collaborative AI infrastructure for rehabilitation medicine.**
+**运动康复 × 生物医学工程 × AI**<br>
+Building explainable, longitudinal AI infrastructure for rehabilitation medicine.
 
 </div>
 
-## 我在做什么 | What I Build
+## 我在做什么
 
-我关注康复医学与医疗 AI 的交汇：把一次性的运动观察、体格检查、临床记录和家庭随访，转化为能够被追踪、复核、解释和继续改进的系统。
-
-I build rehabilitation AI systems that turn motion observations, clinical assessments, records, and follow-up into traceable and reviewable evidence.
+我关注运动康复与医疗 AI 的交汇：把动作观察、功能评估、生理信号、临床记录和家庭随访，组织成能够持续追踪、复核和改进的证据。
 
 ```text
-screening
-  → structured evidence
-  → clinician review
-  → rehabilitation plan
-  → family execution
-  → follow-up and evaluation
+采集与筛查 → RehabID 时间轴 → 专业人员复核 → 康复计划
+      ↑                                        ↓
+      └──────── 家庭执行 ← 患者端 ← 报告与随访 ────────┘
+                         ↓
+                 Galen 科研分析与成文
 ```
 
-AI 不替代医生。它应该帮助临床团队更稳定地获取信息、呈现证据、管理不确定性，并把康复计划真正延续到家庭和复查中。
+我的长期问题是：如何让康复从一次性评估，变成连续、可计算、可解释、能支持下一步决策的过程。
 
-## 当前主线 | Current Focus
+## 项目地图
 
 | 层级 | 项目 | 作用 |
 | --- | --- | --- |
-| 临床工作台 | [QingYueRehabWorkbench](https://github.com/Drehabwen/QingYueRehabWorkbench) | 筛查接入、患者确认、多模态评估、报告与随访闭环 |
-| 现场筛查 | [RehabScreenLab](https://github.com/Drehabwen/RehabScreenLab) | 姿态、深蹲和 Adams 筛查及跨协议证据 |
-| 指标底座 | [rehab-motion-lab](https://github.com/Drehabwen/rehab-motion-lab) | 关节角度、对称性指标和可复现计算样例 |
-| 可信评测 | [Clinical-Agent-Eval-Lab](https://github.com/Drehabwen/Clinical-Agent-Eval-Lab) | 临床 Agent 的证据、边界和系统评测 |
+| 康复师工作台 | [Rehab](https://github.com/Drehabwen/Rehab) | 接诊、体态/ROM 评估、报告、数据与前后对比 |
+| 患者端 | [RehabGPT-](https://github.com/Drehabwen/RehabGPT-) | 家庭任务、训练打卡、结果查看与持续陪伴 |
+| 现场筛查 | [RehabScreenLab](https://github.com/Drehabwen/RehabScreenLab) | 姿态、深蹲、Adams 筛查与跨协议证据 |
+| 科研工作台 | [Galen](https://github.com/Drehabwen/Galen) | 检索、证据提取、数据分析、写作与科研闭环 |
+| 指标实验层 | [rehab-motion-lab](https://github.com/Drehabwen/rehab-motion-lab) | 关节角度、对称性指标与可复现计算 |
 
-这些项目围绕同一条产品与研究链路工作，而不是彼此孤立的应用：
+这些项目不是彼此孤立的应用，而是围绕同一条链路协作：
 
 ```text
-rehab-motion-lab
-        ↓
-RehabScreenLab → QingYueRehabWorkbench
-        ↓                 ↓
-筛查证据          临床审核、报告与随访
-        └── Clinical-Agent-Eval-Lab
+动作/量表/生理数据 → RehabID → 工作台复核 → 患者执行 → 复查比较
+                                  ↘ Galen：证据、研究与报告
 ```
 
-## 项目起点 | Origin
+## 代表项目
 
-[rehabAIfms](https://github.com/Drehabwen/rehabAIfms) 是我在 GitHub 上公开的第一个康复 AI 原型，始于 2025 年 9 月。它用 Expo、TensorFlow.js 姿态估计和关节角度计算探索手机端深蹲实时反馈。
+### [Rehab · 康复师工作台](https://github.com/Drehabwen/Rehab)
 
-它现在作为历史原型保留，不再承担主产品开发；但其中“动作如何变成可解释反馈”的问题，后来演化成 rehab-motion-lab、RehabScreenLab 和 QingYueRehabWorkbench。
+面向康复师的评估与随访工作台，包含体态分析、ROM 评估、语音接诊、报告中心、数据中心和前后对比。重点是把多个评估插件放回同一个患者和时间轴中。
 
-## 重点项目 | Featured Work
+技术：React、TypeScript、Vite、FastAPI、SQLite、MediaPipe、Zustand。
 
-### [QingYueRehabWorkbench](https://github.com/Drehabwen/QingYueRehabWorkbench)
+### [RehabGPT- · 小柱患者端](https://github.com/Drehabwen/RehabGPT-)
 
-青跃康复工作台是当前产品主线。它连接早筛接入、患者身份、多模态康复评估、报告就绪度、家庭任务和复查流程，并明确保留临床人工审核边界。
+连接诊室与家庭的患者/家长端助手：承接康复师制定的任务，支持训练打卡、结果查看和持续对话，让康复计划真正回到日常执行。
 
-### [RehabScreenLab](https://github.com/Drehabwen/RehabScreenLab)
+技术：React、TypeScript、Vite、Node.js、FastAPI、SQLite、WebSocket。
 
-面向现场康复筛查的 Web 与 Android 系统。重点不是给出一个孤立分数，而是让采集质量、计算指标和原始证据能够对应，并进入后续康复工作流。
+### [RehabScreenLab · 现场康复筛查](https://github.com/Drehabwen/RehabScreenLab)
 
-### [rehab-motion-lab](https://github.com/Drehabwen/rehab-motion-lab)
+面向现场筛查的 Web/Android 系统，支持静态姿态、深蹲和 Adams 前屈测试，并将采集质量、计算指标和原始证据整理成可复核报告。
 
-产品背后的动作指标实验层：关节角度、姿态对称性、风险分带与可解释证据原语。目标是让关键计算可以被测试、比较和复现。
+技术：React、TypeScript、Vite、Capacitor、FastAPI、MediaPipe。
 
-### [Clinical-Agent-Eval-Lab](https://github.com/Drehabwen/Clinical-Agent-Eval-Lab)
+### [Galen · 康复科研闭环工作台](https://github.com/Drehabwen/Galen)
 
-面向临床与康复 Agent 的系统评测实验室，关注证据覆盖、不确定性表达、护栏和临床审核边界。
+面向康复科研团队的执行型工作台：将任务拆解为计划、检索、证据提取、数据分析、写作和审核节点，并保留来源、执行过程与项目记忆。
 
-## 长期研究 | Long-term Exploration
+技术：Rust/Tauri、科研 Agent、PubMed 检索、证据链、可复现工作流。
 
-### [Galen](https://github.com/Drehabwen/Galen)
+### [rehab-motion-lab · 动作指标实验层](https://github.com/Drehabwen/rehab-motion-lab)
 
-Rust/Tauri 医学科研工作台，探索文献检索、论文阅读、引用管理、多模型路由和可复现科研 Agent 工作流。它是独立的长期研究方向，不取代康复产品主线。
+围绕关节角度、姿态对称性和风险分带建立可测试、可比较、可复现的计算原语，为筛查端和工作台提供指标基础。
 
-## 工作原则 | Working Principles
+## 研究与验证
 
-- **Evidence before answers.** 先有证据，再有结论。
-- **Clinicians stay in the loop.** AI 增强临床判断，不绕开临床判断。
-- **Products must survive real workflows.** 工具必须经得起真实流程，而不只是一段演示。
-- **Privacy is part of the architecture.** 患者数据保护不是发布前补上的功能。
-- **Research and product should feed each other.** 指标、评测和真实使用反馈应互相校正。
+- **运动疲劳与传感器基线审计**：使用直接观测的 Borg RPE 和受试者留一法，检验哪些疲劳信号可以在线部署，避免时序信息泄漏。
+- **FMS Auto-Scorer**：基于公开康复骨架数据探索功能性动作筛查自动评分，包含数据隔离、基线模型、实验协议和论文图表。
+- **Clinical-Agent-Eval-Lab**：关注康复 Agent 的证据覆盖、不确定性表达和专业人员复核流程。
 
-## 当前验证问题 | Questions I Am Testing
+## 项目演进
 
-- 动作评估怎样达到足够稳定的重测一致性？
-- 筛查结果如何成为可复核的证据，而不是黑箱分数？
-- 医疗 Agent 应怎样呈现证据、不确定性和责任边界？
-- 家庭随访怎样同时做到可量化、可执行且有人味？
+```text
+rehabAIfms（手机端深蹲反馈原型）
+        → 动作指标与可复现计算
+        → RehabScreenLab（现场筛查）
+        → Rehab（康复师工作台）+ RehabGPT-（患者端）
+        → RehabID + Galen（跨场景数据与科研闭环）
+```
 
-## 联系与协作 | Collaboration
+早期原型保留为成长轨迹；当前开发集中在可复用的数据协议、真实工作流和纵向验证。
 
-欢迎围绕康复筛查、运动评估、临床工作流、医疗 Agent 评测与真实场景验证交流。具体项目状态、运行方式和医学边界请以各仓库 README 为准。
+## 我正在验证的问题
+
+- 动作和生理指标如何形成稳定的个体基线？
+- 筛查结果怎样成为可复核的证据，而不是一个孤立分数？
+- 家庭训练如何被记录、反馈，并回流到下一次专业评估？
+- 科研 Agent 怎样同时做到直接执行、来源透明和结果可复现？
+
+## 工作原则
+
+- **Evidence before answers.** 先建立证据，再形成结论。
+- **Real workflows over demos.** 软件要经得起真实工作流，而不只是演示。
+- **Research and product feed each other.** 指标、评测和使用反馈相互校正。
+
+更多实验项目与历史原型见我的 [Repositories](https://github.com/Drehabwen?tab=repositories)。
